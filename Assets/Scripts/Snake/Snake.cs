@@ -12,7 +12,7 @@ public class Snake : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _tailSpringiness;
 
-    private SnakeInput _input;
+    private SnakeInput _snakeInput;
     private List<Segment> _tail;
     private TailGenerator _tailGenerator;
 
@@ -21,12 +21,15 @@ public class Snake : MonoBehaviour
     private void Awake()
     {
         _tailGenerator = GetComponent<TailGenerator>();
-        _input = GetComponent<SnakeInput>();
+        _snakeInput = GetComponent<SnakeInput>();
 
         _tail = _tailGenerator.Generate(_tailSize);
         SizeUpdated?.Invoke(_tail.Count);
     }
-
+    private void Start()
+    {
+        SizeUpdated?.Invoke(_tail.Count);
+    }
     private void OnEnable()
     {
         _head.BlockCollided += OnBlockCollided;
@@ -43,7 +46,7 @@ public class Snake : MonoBehaviour
     {
         Move(_head.transform.position + _head.transform.up * _speed * Time.fixedDeltaTime);
 
-        _head.transform.up = _input.GetDirectionToClick(_head.transform.position);
+        _head.transform.up = _snakeInput.GetDirectionToClick(_head.transform.position);
     }
 
     private void Move(Vector3 nextPosition)

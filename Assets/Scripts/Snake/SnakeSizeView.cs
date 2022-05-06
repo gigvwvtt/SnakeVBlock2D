@@ -7,6 +7,7 @@ using TMPro;
 public class SnakeSizeView : MonoBehaviour
 {
     [SerializeField] private TMP_Text _view;
+    
     private Snake _snake;
 
     private void Awake()
@@ -28,6 +29,5 @@ public class SnakeSizeView : MonoBehaviour
     {
         _view.text = size.ToString();
     }
-
 }
 
