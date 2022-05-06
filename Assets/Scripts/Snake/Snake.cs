@@ -18,7 +18,7 @@ public class Snake : MonoBehaviour
 
     public event UnityAction<int> SizeUpdated;
 
-    private void Awake()
+    private void Start()
     {
         _tailGenerator = GetComponent<TailGenerator>();
         _snakeInput = GetComponent<SnakeInput>();
@@ -26,10 +26,7 @@ public class Snake : MonoBehaviour
         _tail = _tailGenerator.Generate(_tailSize);
         SizeUpdated?.Invoke(_tail.Count);
     }
-    private void Start()
-    {
-        SizeUpdated?.Invoke(_tail.Count);
-    }
+    
     private void OnEnable()
     {
         _head.BlockCollided += OnBlockCollided;
