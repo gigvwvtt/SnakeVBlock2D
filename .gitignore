@@ -70,3 +70,6 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+.idea/.idea.SnakeVBlock2D/.idea/encodings.xml
+.idea/.idea.SnakeVBlock2D/.idea/indexLayout.xml
+.idea/.idea.SnakeVBlock2D/.idea/vcs.xml
